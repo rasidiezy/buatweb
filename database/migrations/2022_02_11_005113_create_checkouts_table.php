@@ -13,18 +13,18 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('checkouts', function (Blueprint $table) {
             $table->id();
-            $table->string('nama');
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password')->nullable();
-            $table->string('avatar')->nullable();
-            $table->string('pekerjaan')->nullable();
-            $table->string('is_admin')->default(false);
-            $table->rememberToken();
+            $table->foreignId('users_id')->constrained();
+            $table->unsignedBigInteger('paket_id');
+            $table->string('nomor_kartu', 20);
+            $table->date('kadaluwarsa');
+            $table->string('cvc', 3);
+            $table->boolean('is_paid')->default(false);
             $table->timestamps();
             $table->softDeletes();
+
+            $table->foreign('paket_id')->references('id')->on('paket')->onDelete('cascade');
         });
     }
 
@@ -35,6 +35,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('checkouts');
     }
 };
