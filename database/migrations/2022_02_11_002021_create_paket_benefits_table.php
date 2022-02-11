@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('paket_benefit', function (Blueprint $table) {
+        Schema::create('paket_benefits', function (Blueprint $table) {
             $table->id();
             //1st Method
             // $table->bigInteger('paket_id')->unsigned();
@@ -25,7 +25,7 @@ return new class extends Migration
             $table->timestamps();
 
             //1st Method
-            $table->foreign('paket_id')->references('id')->on('paket')->onDelete('cascade');
+            $table->foreign('paket_id')->references('id')->on('pakets')->onDelete('cascade');
         });
     }
 
@@ -36,6 +36,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('paket_benefit');
+        Schema::dropIfExists('paket_benefits');
     }
 };
