@@ -295,10 +295,10 @@
     </div>
 </section>
 
-<section class="testimonials">
+<section class="testimonials" style="margin-top: 190px;">
     <div class="container">
-        <div class="row text-center pb-70">
-            <div class="col-lg-12 col-12 header-wrap">
+        <div class="row text-center">
+            <div class="col-lg-12 col-12 header-wrap pb-65">
                 <p class="story">
                     TESTIMONI KAMI
                 </p>
