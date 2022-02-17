@@ -9,6 +9,7 @@ use App\Http\Controllers\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Auth\VerifyEmailController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
 
 Route::middleware('guest')->group(function () {
     Route::get('register', [RegisteredUserController::class, 'create'])
@@ -16,11 +17,7 @@ Route::middleware('guest')->group(function () {
 
     Route::post('register', [RegisteredUserController::class, 'store']);
 
-    Route::get('/login', function(){
-        return view('login');
-    })
-                ->middleware('guest')
-                ->name('login');
+    Route::get('/login',[UserController::class, 'login'])->middleware('guest')->name('login');
 
     Route::get('/login/admin', [AuthenticatedSessionController::class, 'create'])
                 ->middleware('guest')  
