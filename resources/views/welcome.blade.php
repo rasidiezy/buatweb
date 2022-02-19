@@ -159,7 +159,7 @@
                 </p>
                 <p class="mt-5">
                     <a href="#" class="btn btn-master text-red btn-secondary me-3">
-                        Lihat Demo
+                        Selengkapnya
                     </a>
                 </p>
             </div>
@@ -242,8 +242,8 @@
                             </div>
        
                             <p>
-                                <a href="{{ route('checkouts') }}" class="btn btn-master btn-primary w-100 mt-3">
-                                    Take This Plan
+                                <a href="{{ route('checkout.create', 'paket-maksimal') }}" class="btn btn-master btn-primary w-100 mt-3">
+                                    Ambil Paket Ini
                                 </a>
                             </p>
                         </div>
@@ -282,8 +282,8 @@
                             </div>
               
                             <p>
-                                <a href="{{ route('checkouts') }}" class=" text-red btn btn-master btn-secondary w-100 mt-3">
-                                    Start With This Plan
+                                <a href="{{ route('checkout.create', 'paket-standar') }}" class=" text-red btn btn-master btn-secondary w-100 mt-3">
+                                    Mulai Dengan Ini
                                 </a>
                             </p>
                         </div>

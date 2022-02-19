@@ -142,8 +142,31 @@ return [
     */
 
     'custom' => [
-        'attribute-name' => [
-            'rule-name' => 'custom-message',
+        'name' => [
+            'required' => 'Nama harus diisikan terlebih dahulu',
+            'alpha' => 'Nama tidak boleh mengandung angka',
+        ],
+        'email' => [
+            'required' => 'Email harus diisikan terlebih dahulu',
+            'email' => 'Alamat email harus valid',
+        ],
+        'pekerjaan' => [
+            'required' => 'Pekerjaan harus diisikan terlebih dahulu',
+            'alpha' => 'Pekerjaan tidak boleh mengandung angka',
+        ],
+        'nomor_kartu' => [
+            'required' => 'nomor kartu harus diisikan terlebih dahulu',
+           'numeric' => 'Nomor kartu tidak boleh mengandung huruf',
+           'digits_between' => 'Nomor kartu minimal 8 dan maksimal 16'
+        ],
+        'kadaluwarsa' => [
+            'required' => 'kadaluwarsa harus diisikan terlebih dahulu',
+            'after_or_equal' => 'kadaluwarsa harus setelah atau sama dengan :date'
+        ],
+        'cvc' => [
+            'required' => 'kode CVC harus diisikan terlebih dahulu',
+            'numeric' => 'Kode CVC tidak boleh mengandung huruf',
+            'digits' => 'Kode CVC harus 3 digit'
         ],
     ],
 
