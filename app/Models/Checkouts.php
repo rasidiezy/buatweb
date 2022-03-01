@@ -31,8 +31,22 @@ class Checkouts extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
+    /**
+     * Get the user that owns the Checkouts
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+
+
     public function Paket(): BelongsTo
     {
         return $this->belongsTo(Paket::class);
     }
+
+    public function User()
+    {
+        return $this->hasOne(User::class, 'id','users_id');
+        // return $this->belongsTo(User::class);
+    }
+        #
 }

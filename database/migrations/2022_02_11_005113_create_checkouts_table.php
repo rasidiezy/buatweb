@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('checkouts', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('users_id')->constrained();
+            $table->unsignedBigInteger('users_id');
             $table->unsignedBigInteger('paket_id');
             $table->string('nomor_kartu', 20);
             $table->date('kadaluwarsa');
@@ -25,9 +25,9 @@ return new class extends Migration
             $table->softDeletes();
 
             $table->foreign('paket_id')->references('id')->on('pakets')->onDelete('cascade');
+            $table->foreign('users_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
-
     /**
      * Reverse the migrations.
      *

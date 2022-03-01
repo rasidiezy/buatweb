@@ -8,7 +8,10 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use App\Http\Requests\User\Checkout\Store;
 use App\Models\Paket;
+use App\Models\User;
 use Auth;
+use Mail;
+use App\Mail\Checkout\afterCheckout;
 
 
 class CheckoutController extends Controller
@@ -33,7 +36,7 @@ class CheckoutController extends Controller
         
         if ($paket->isRegistered) {
             $request->session()->flash('error', "Anda telah teregistrasi di {$paket->judul}.");
-            return redirect(route('dashboard')); 
+            return redirect(route('user.dashboard')); 
         }
         return view('checkouts.create', [
             'paket' => $paket
@@ -48,9 +51,6 @@ class CheckoutController extends Controller
      */
     public function store(Store $request, Paket $paket)
     {
-      
-
-        return $request->all();
         //mapping request data
         $data = $request->all();
         $data['users_id'] = Auth::id();
@@ -64,9 +64,10 @@ class CheckoutController extends Controller
         $user->save();
 
         //insert checkout
-        $checkouts = Checkouts
-        
-        ::create($data);
+        $checkouts = Checkouts::create($data);
+
+        //send email
+        Mail::to(Auth::user()->email)->send(new afterCheckout($checkouts));
 
         return redirect(route('checkout.success'));
     }

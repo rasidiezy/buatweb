@@ -25,7 +25,7 @@ class Store extends FormRequest
     {
         $expiredValid = date('Y-m', time());
         return [
-            'name' => 'required|alpha',  
+            'name' => 'required|string',  
             'email' => 'required|email|unique:users,email,'.Auth::id().',id', 
             'pekerjaan' => 'required', 
             'nomor_kartu' => 'required|numeric|digits_between:8,16', 
