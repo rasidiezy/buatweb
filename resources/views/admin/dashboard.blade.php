@@ -27,11 +27,11 @@
                                         <td>{{ $item->User->nama }}</td>
                                         <td>{{ $item->Paket->judul }}</td>
                                         <td>{{ @currency($item->Paket->harga )}}</td>
-                                        <td>{{ $item->created_at->format('M d Y') }}</td>
+                                        <td>{{ $item->created_at->format('d Mm Y') }}</td>
                                         <td>
                                             @if ($item->is_paid)
                                                  <span class="badge bg-success">Telah Bayar</span>
-                                            @else
+                                              @else
                                                 <span class="badge bg-warning">Menunggu Pembayaran</span>
                                             @endif
                                         </td>

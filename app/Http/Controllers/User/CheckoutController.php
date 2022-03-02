@@ -31,14 +31,17 @@ class CheckoutController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    // menaruh parameter Paket Slug yang dikirim sebelumnya
     public function create(Paket $paket, Request $request) 
     {
-        
+        //mengecek jika sudah ada data user yg login di checkout paket maka diarahkan ke dashboard user
         if ($paket->isRegistered) {
             $request->session()->flash('error', "Anda telah teregistrasi di {$paket->judul}.");
             return redirect(route('user.dashboard')); 
         }
+        //jika tidak ada maka akan diteruskan ke bagian view->folder checkouts->create.blade.php
         return view('checkouts.create', [
+            //mengirim parameter data paket
             'paket' => $paket
         ]);
     }

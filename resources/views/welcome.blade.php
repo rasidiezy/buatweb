@@ -242,6 +242,7 @@
                             </div>
        
                             <p>
+                                {{-- memanggil route di web.php dan mengirim parameter slug --}}
                                 <a href="{{ route('checkout.create', 'paket-maksimal') }}" class="btn btn-master btn-primary w-100 mt-3">
                                     Ambil Paket Ini
                                 </a>
@@ -291,7 +292,6 @@
                 </div>
             </div>
         </div>
-        
     </div>
 </section>
 

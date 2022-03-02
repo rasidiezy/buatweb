@@ -32,6 +32,7 @@ Route::get('/auth/google/callback',[UserController::class, 'handleProvider']);
 Route::middleware(['auth'])->group(function () {
     //checkout routes user
     Route::get('/checkouts/success',[CheckoutController::class, 'success'])->name('checkout.success')->middleware('UserRole:user');
+    // memanggil class CheckoutController dan Function create
     Route::get('/checkouts/{paket:slug}',[CheckoutController::class, 'create'])->name('checkout.create')->middleware('UserRole:user');
     Route::post('checkouts/{paket}',[CheckoutController::class, 'store'])->name('checkout.store')->middleware('UserRole:user'); 
 
