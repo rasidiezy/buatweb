@@ -35,9 +35,9 @@
                         </td>
                         <td>
                              @if ($item->payment_status == 'waiting')
-                             <strong class="text-capitalize text-warning"> {{ $item->payment_status }}</strong>
+                             <strong class="text-capitalize badge bg-warning"> {{ $item->payment_status }}</strong>
                              @else
-                             <strong class="text-capitalize text-success"> {{ $item->payment_status }}</strong>
+                             <strong class="text-capitalize badge bg-success"> {{ $item->payment_status }}</strong>
                              @endif
                         </td>
                         <td class="text-center">
