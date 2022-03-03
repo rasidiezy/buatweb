@@ -59,31 +59,25 @@
                               <p  class="text-danger">{{ $errors->first('pekerjaan') }}</p>
                             </div>
                               @endif
-                              <div class="mb-4">
-                                  <label class="form-label">Nomor Kartu</label>
-                                  <input type="number" name="nomor_kartu" class="form-control  {{ $errors->has('nomor_kartu') ? 'is-invalid' : '' }}" value="{{old('nomor_kartu') ?: Auth::user()->nomor_kartu }}" required>
-                              </div>
-                              @if ($errors->has('nomor_kartu'))
-                              <div class=" text-center" role="alert">
-                              <p  class="text-danger">{{ $errors->first('nomor_kartu') }}</p>
+                            <div class="mb-4">
+                                <label class="form-label">No Handphone</label>
+                                <input type="text" name="no_telepon" class="form-control  {{ $errors->has('no_telepon') ? 'is-invalid' : '' }}" value="{{old('no_telepon') ?: Auth::user()->no_telepon }}" required>
                             </div>
-                              @endif
-                              <div class="mb-5">
-                                  <div class="row">
-                                      <div class="col-lg-6 col-12">
-                                          <label class="form-label">Kadaluwarsa</label>
-                                          <input type="month" name="kadaluwarsa" class="form-control {{ $errors->has('kadaluwarsa') ? 'is-invalid' : '' }}" value="{{old('kadaluwarsa') ?: Auth::user()->kadaluwarsa }}" required>
-                                          @if ($errors->has('kadaluwarsa'))
-                                          <p  class="text-danger ">{{ $errors->first('kadaluwarsa') }}</p>
-                                          @endif
-                                      </div>
-                                      <div class="col-lg-6 col-12">
-                                          <label class="form-label">Kode CVC</label>
-                                          <input type="number" maxlength="3" name="cvc" class="form-control  {{ $errors->has('cvc') ? 'is-invalid' : '' }}" required>
-                                          @if ($errors->has('cvc'))
-                                          <p  class="text-danger">{{ $errors->first('cvc') }}</p>
-                                          @endif
-                                      </div>
+                            @if ($errors->has('no_telepon'))
+                            <div class=" text-center" role="alert">
+                            <p  class="text-danger">{{ $errors->first('no_telepon') }}</p>
+                          </div>
+                            @endif
+                            <div class="mb-4">
+                                <label class="form-label">Alamat</label>
+                                <input type="text" name="alamat" class="form-control  {{ $errors->has('alamat') ? 'is-invalid' : '' }}" value="{{old('alamat') ?: Auth::user()->alamat }}" required>
+                            </div>
+                            @if ($errors->has('alamat'))
+                            <div class=" text-center" role="alert">
+                            <p  class="text-danger">{{ $errors->first('alamat') }}</p>
+                          </div>
+                            @endif
+                              
                                      
                                      
                                   </div>

@@ -20,13 +20,13 @@ use Str;
 class CheckoutController extends Controller
 {
 
-public function __construct()
-{
-    Midtrans\Config::$serverKey = env('MIDTRANS_SERVERKEY');
-    Midtrans\Config::$isProduction = env('MIDTRANS_IS_PRODUCTION');
-    Midtrans\Config::$isSanitized = env('MIDTRANS_IS_SANITIZED');
-    Midtrans\Config::$is3DS = env('MIDTRANS_IS_3DS');
-}
+// public function __construct()
+// {
+//     Midtrans\Config::$serverKey = env('MIDTRANS_SERVERKEY');
+//     Midtrans\Config::$isProduction = env('MIDTRANS_IS_PRODUCTION');
+//     Midtrans\Config::$isSanitized = env('MIDTRANS_IS_SANITIZED');
+//     Midtrans\Config::$is3ds = env('MIDTRANS_IS_3DS');
+// }
 
     /**
      * Display a listing of the resource.
@@ -46,6 +46,7 @@ public function __construct()
     // menaruh parameter Paket Slug yang dikirim sebelumnya
     public function create(Paket $paket, Request $request) 
     {
+      
         //mengecek jika sudah ada data user yg login di checkout paket maka diarahkan ke dashboard user
         if ($paket->isRegistered) {
             $request->session()->flash('error', "Anda telah teregistrasi di {$paket->judul}.");
@@ -67,6 +68,7 @@ public function __construct()
     public function store(Store $request, Paket $paket)
     {
         //mapping request data
+        return $request->all();
         $data = $request->all();
         $data['users_id'] = Auth::id();
         $data['paket_id'] = $paket->id;
