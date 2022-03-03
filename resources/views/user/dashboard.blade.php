@@ -34,14 +34,19 @@
                             <strong>Rp. {{@currency($item->Paket->harga) }}</strong>
                         </td>
                         <td>
-                              @if ($item->is_paid)
-                              <strong class="text-green">Pembayaran Berhasil</strong>
-                              @else
-                              <strong>Menunggu Pembayaran</strong>
-                              @endif
+                             @if ($item->payment_status == 'waiting')
+                             <strong class="text-capitalize text-warning"> {{ $item->payment_status }}</strong>
+                             @else
+                             <strong class="text-capitalize text-success"> {{ $item->payment_status }}</strong>
+                             @endif
+                        </td>
+                        <td class="text-center">
+                            @if ($item->payment_status == 'waiting')
+                            <a href="{{ $item->midtrans_url }}" class="btn btn-primary "> Bayar Disini</a>
+                            @endif
                         </td>
                         <td>
-                            <a href="https://wa.me/085158580660?text=Hi, saya telah memesan kelas {{ $item->Paket->judul }}" class="btn btn-primary">
+                            <a href="https://wa.me/085158580660?text=Hi, saya telah memesan kelas {{ $item->Paket->judul }}" class="btn btn-secondary">
                                 Kontak Kami
                             </a>
                         </td>

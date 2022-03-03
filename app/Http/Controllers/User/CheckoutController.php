@@ -20,13 +20,13 @@ use Str;
 class CheckoutController extends Controller
 {
 
-// public function __construct()
-// {
-//     Midtrans\Config::$serverKey = env('MIDTRANS_SERVERKEY');
-//     Midtrans\Config::$isProduction = env('MIDTRANS_IS_PRODUCTION');
-//     Midtrans\Config::$isSanitized = env('MIDTRANS_IS_SANITIZED');
-//     Midtrans\Config::$is3ds = env('MIDTRANS_IS_3DS');
-// }
+public function __construct()
+{
+    Midtrans\Config::$serverKey = env('MIDTRANS_SERVERKEY');
+    Midtrans\Config::$isProduction = env('MIDTRANS_IS_PRODUCTION');
+    Midtrans\Config::$isSanitized = env('MIDTRANS_IS_SANITIZED');
+    Midtrans\Config::$is3ds = env('MIDTRANS_IS_3DS');
+}
 
     /**
      * Display a listing of the resource.
@@ -68,7 +68,7 @@ class CheckoutController extends Controller
     public function store(Store $request, Paket $paket)
     {
         //mapping request data
-        return $request->all();
+       
         $data = $request->all();
         $data['users_id'] = Auth::id();
         $data['paket_id'] = $paket->id;
@@ -78,6 +78,8 @@ class CheckoutController extends Controller
         $user->email= $data['email'];
         $user->nama= $data['name'];
         $user->pekerjaan= $data['pekerjaan'];
+        $user->no_telepon= $data['no_telepon'];
+        $user->alamat= $data['alamat'];
         $user->save();
 
         //insert checkout
@@ -142,14 +144,14 @@ class CheckoutController extends Controller
     public function getSnapRedirect(Checkouts $checkouts)
     {
         $orderId = $checkouts->id.'-'.Str::random(5);
-        $price = $checkout->Paket->harga;
+        $price = $checkouts->Paket->harga;
 
         $transactionDetails = [
             'order_id' => $orderId,
             'gross_amount' => $price
         ];
 
-        $item_details = [
+        $item_details[] = [
             'id' => $orderId,
             'price' => $price,
             'quantity' => 1,
@@ -183,8 +185,9 @@ class CheckoutController extends Controller
 
         try {
             //Get Snap Payment Page URL
-            $paymentUrl = \Midtrans\Snap::createTransaction($params)->redirect_url;
+            $paymentUrl = \Midtrans\Snap::createTransaction($midtrans_params)->redirect_url;
             $checkouts->midtrans_url = $paymentUrl;
+            $checkouts->midtrans_booking_code = $orderId;
             $checkouts->save();
 
             return $paymentUrl;
@@ -195,13 +198,13 @@ class CheckoutController extends Controller
 
     public function midtransCallback(Request $request)
     {
-        $notif = new Midtrans\Notification();
+        $notif = $request->method() == 'POST' ? new Midtrans\Notification() : Midtrans\Transaction::status($request->order_id);
 
         $transaction_status = $notif->transaction_status;
         $fraud = $notif->fraud_status;
 
         $checkout_id = explode('-', $notif->order_id) [0];
-        $checkout = Checkout::find($checkout_id);
+        $checkout = Checkouts::find($checkout_id);
 
         if ($transaction_status == 'capture') {
             if ($fraud == 'challenge') {
@@ -210,7 +213,7 @@ class CheckoutController extends Controller
             }
             else if ($fraud == 'accept') {
             // TODO Set payment status in merchant's database to 'success'
-            $checkout->payment_status = 'sukses';
+            $checkout->payment_status = 'dibayar';
             }
         }
         else if ($transaction_status == 'cancel') {
@@ -229,7 +232,7 @@ class CheckoutController extends Controller
         }
         else if ($transaction_status == 'settlement') {
             // TODO set payment status in merchant's database to 'Settlement'
-            $checkout->payment_status = 'sukses';
+            $checkout->payment_status = 'dibayar';
         }
         else if ($transaction_status == 'pending') {
             // TODO set payment status in merchant's database to 'Pending'
@@ -241,6 +244,6 @@ class CheckoutController extends Controller
         }
 
         $checkout->save();
-        return view('checkout/success');
+        return view('checkouts/success');
     }
 }
