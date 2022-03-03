@@ -22,11 +22,13 @@ Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
 
-
+//socialite routes
 Route::get('/sign-in-google',[UserController::class, 'google'])->name('user.login.google');
 Route::get('/auth/google/callback',[UserController::class, 'handleProvider']);
 
-
+//midtrans route
+ Route::get('payment/success', [CheckoutController::class, 'midtransCallback']);
+ Route::post('payment/success', [CheckoutController::class, 'midtransCallback']);
 
 //halaman yg tidak bisa diakses sebelum login
 Route::middleware(['auth'])->group(function () {
