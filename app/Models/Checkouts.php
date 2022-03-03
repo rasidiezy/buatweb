@@ -14,17 +14,16 @@ class Checkouts extends Model
     protected $fillable = [
         'users_id',
         'paket_id',
-        'nomor_kartu',
-        'kadaluwarsa',
-        'cvc',
-        'is_paid'
+        'payment_status', 
+        'midtrans_url', 
+        'midtrans_booking_code'
     ];
     
     //memformat inputan kadaluwarsa di form checkout
-    public function setKadaluwarsaAttribute($value)
-    {
-        $this->attributes['kadaluwarsa'] = date('Y-m-t', strtotime($value));
-    }
+    // public function setKadaluwarsaAttribute($value)
+    // {
+    //     $this->attributes['kadaluwarsa'] = date('Y-m-t', strtotime($value));
+    // }
 
     /**
      * Get the Paket that owns the Checkouts
