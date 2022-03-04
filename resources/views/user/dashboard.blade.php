@@ -13,16 +13,16 @@
                   </h2>
               </div>
           </div>
-          <div class="row my-5">
+          <div class="row my-5 table-responsive-sm">
               @include('components.alert')
               <table class="table">
                   <tbody>
                     @forelse ($checkouts as $item)
                     <tr class="align-middle">
                         <td width="18%">
-                            <img src="{{ asset('/images/item_bootcamp.png') }}" height="120" alt="">
+                            <img class="imgsm" src="{{ asset('/images/item_bootcamp.png') }}" height="120" alt="">
                         </td>
-                        <td>
+                        <td class="width-mobile">
                             <p class="mb-2">
                                 <strong>{{ $item->Paket->judul }}</strong>
                             </p>

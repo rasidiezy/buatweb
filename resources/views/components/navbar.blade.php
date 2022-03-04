@@ -22,7 +22,7 @@
                   </li>
               </ul>
               @auth
-              <div class="d-flex user-logged nav-item dropdown no-arrow">
+              <div class="d-flex user-logged nav-item dropdown no-arrow ca">
                 <a href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
                     Halo, {{ Auth::user()->nama }}
                     @if (Auth::user()->avatar)

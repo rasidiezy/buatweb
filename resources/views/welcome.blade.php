@@ -14,11 +14,11 @@
                             Bangun <span class="text-red">Website <br> Impian</span> Bersama Kami
                         </h1>
                         <p class="support">
-                            Sebuah program yang membantu anda untuk membuat <br> website impian anda.
+                            Sebuah program yang membantu anda untuk membuat website impian anda.
                         </p>
                      
                         <p class="cta">
-                            <a href="#" class="btn btn-master btn-primary">
+                            <a href="#pricing" class="btn btn-master btn-primary">
                                Mulai Sekarang
                             </a>
                         </p>
@@ -104,7 +104,7 @@
             <div class="col-lg-6 col-12 text-center">
                 <img src="{{ asset('/images/step1.png') }}" class="cover" alt="">
             </div>
-            <div class="col-lg-6 col-12 text-left copywriting">
+            <div class="col-lg-6 col-12 text-left copywriting disnone">
                 <p class="story">
                     TAHAP PERTAMA   
                 </p>
@@ -122,7 +122,7 @@
             </div>
         </div>
         <div class="row item-step pb-70">
-            <div class="col-lg-6 col-12 text-left copywriting pl-150">
+            <div class="col-lg-6 col-12 text-left copywriting disnone pl-150">
                 <p class="story">
                    TAHAP KEDUA
                 </p>
@@ -147,7 +147,7 @@
             <div class="col-lg-6 col-12 text-center">
                 <img src="{{ asset('/images/step3.png') }}" class="cover" alt="">
             </div>
-            <div class="col-lg-6 col-12 text-left copywriting">
+            <div class="col-lg-6 col-12 text-left copywriting disnone">
                 <p class="story">
                    TAHAP TERAKHIR
                 </p>
@@ -167,7 +167,7 @@
     </div>
 </section>
 
-<section class="pricing">
+<section class="pricing"  id="pricing">
     <div class="container">
         <div class="row pb-70">
             <div class="col-lg-5 col-12 header-wrap copywriting">
@@ -178,7 +178,7 @@
                    Bangun Website Anda
                 </h2>
                 <p class="support">
-                   Jangan tunggu nanti miliki segera sebuah website <br> untuk keperluan portfolio ataupun perusahaan anda
+                   Jangan tunggu nanti miliki segera sebuah website untuk keperluan portfolio ataupun perusahaan anda
                 </p>
                 
             </div>
@@ -295,7 +295,7 @@
     </div>
 </section>
 
-<section class="testimonials" style="margin-top: 190px;">
+<section class="testimonials">
     <div class="container">
         <div class="row text-center">
             <div class="col-lg-12 col-12 header-wrap pb-65">
@@ -314,10 +314,10 @@
                         <div class="item-review">
                             <img src="{{ asset('/images/stars.svg') }}" alt="">
                             <p class="message">
-                                Saya sangat kagum dengan website perusahaan kami yang dihasilkan oleh <b> buatweb.com </b>
+                                Saya sangat kagum dengan website perusahaan kami yang dihasilkan oleh <b> buatweb</b>
                          
                             <div class="user">
-                                <img src="{{ asset('/images/rasidi.png') }}" class="photo" alt="">
+                                <img src="{{ asset('/images/beatrice.png') }}" class="photo" alt="">
                                 <div class="info">
                                     <h4 class="name">
                                         Rasidi
@@ -333,7 +333,7 @@
                         <div class="item-review">
                             <img src="{{ asset ('/images/stars.svg') }}" alt="">
                             <p class="message">
-                               Kami berhasil meningkatkan penjualan online setelah dibuatkan website keren oleh <b> buatweb.com </b>
+                               Kami berhasil meningkatkan penjualan online setelah dibuatkan website keren oleh <b> buatweb </b>
                             </p>
                             <div class="user">
                                 <img src="{{ asset('images/angga.png') }}" class="photo" alt="">
@@ -342,7 +342,7 @@
                                        Rizali
                                     </h4>
                                     <p class="role">
-                                        CEO at BWA Corp
+                                        Penjual Online
                                     </p>
                                 </div>
                             </div>
@@ -352,10 +352,10 @@
                         <div class="item-review">
                             <img src="{{ asset('/images/stars.svg') }}" alt="">
                             <p class="message">
-                               <b>buatweb.com</b>  sangat totalitas dalam hal pembuatan website portfolio saya sebagai perawat
+                               <b>buatweb</b>  sangat totalitas dalam hal pembuatan website portfolio saya sebagai perawat
                             </p>
                             <div class="user">
-                                <img src="{{ asset('/images/beatrice.png') }}" class="photo" alt="">
+                                <img src="{{ asset('/images/rasidi.png') }}" class="photo" alt="">
                                 <div class="info">
                                     <h4 class="name">
                                         Lastri Ayu

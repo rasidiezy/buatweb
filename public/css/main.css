@@ -1,3 +1,200 @@
+/* Small devices (landscape phones, 576px and up) */
+@media (max-width: 576px) { 
+  .item-benefit, .support, .header, .story, .cta {
+    text-align: center;
+  }
+  .banner {
+    padding-top: 20px;
+  }
+  .banner .header {
+    font-size: 40px;
+    font-weight: 600;
+  }
+  .disnone {
+    display: none;
+  }
+  .pricing {
+    margin-top: 100px;
+    background: #950101;
+    padding-top: 35px;
+    max-height: 1530px;
+  }
+  /* .pricing, .copywriting {
+      margin-top: -50px;
+  } */
+  .primary-header {
+    text-align: center;
+  }
+  .testimonials {
+    background: #F7F7FB;
+    padding: 10px 0 70px 0;
+    margin-top: 0px;
+  } 
+  .pricing .paket-gila {
+    min-height: 697px;
+  }
+  .pricing .paket-biasa {
+    min-height: 453px;
+    margin-top: 15px;
+  }
+  .testimonials .item-review {
+    border-radius: 13px;
+    background: #fff;
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 15px;
+  }
+  .login-user .left {
+    display: none;
+    background-color: #950101;
+    width: 50%;
+    min-height: 900px;
+    text-align: center;
+    float: left;
+  } 
+  .login-user .right {
+    width: 100%;
+    padding: 25px;  
+  }
+  .login-user .right .btn-border {
+    border: 1px solid #E7E5F4;
+    border-radius: 50px;
+    padding: 12px 70px 12px 80px;
+  }
+  .story {
+    font-weight: 600;
+    font-size: 16px;
+    color: #00A19D;
+    margin-top: 35px;
+  }
+  .checkout {
+    padding-top: 7px;
+    padding-bottom: 80px;
+  }
+  .checkout .item-bootcamp .package {
+    font-size: 22px;
+    color: #31B380;
+    font-weight: 600;
+    text-align: center;
+  }
+  
+  .checkout .item-bootcamp .description {
+    font-size: 16px;
+    color: #211B3D;
+    font-weight: 400;
+    line-height: 30px;
+    text-align: center;
+    margin-bottom: 35px;
+  }
+  .checkout .item-bootcamp .cover {
+    height: 255px;
+    margin-bottom: 30px;
+    margin-top: -35px;
+  }
+  .imgsm {
+    display: none;
+  }
+
+  .ca {
+    margin-left: 200px;
+  }
+}
+
+/* END Small devices (landscape phones, 576px and up) */
+
+
+ /* // Large devices (desktops, less than 1200px) */
+@media (min-width: 992px) { 
+  .banner {
+    padding: 80px 0 80px 0;
+  }
+  .pricing .copywriting {
+    margin-top: 80px;
+  }
+.testimonials {
+  background: #F7F7FB;
+  padding: 70px 0 70px 0;
+  margin-top: 150px;
+}
+  .banner .header {
+    margin: 20px 0 20px 0;
+    font-size: 42px;
+    color: #211B3D;
+    font-weight: 600;
+  }
+  .header-wrap .primary-header {
+    margin-top: 8px;
+  }
+  .pricing {
+    margin-top: 100px;
+    background: #950101;
+    padding-top: 70px;
+    max-height: 620px;
+  }
+  .pricing .paket-gila {
+    min-height: 697px;
+  }
+  .pricing .paket-biasa {
+    min-height: 453px;
+  }
+  .testimonials .item-review {
+    border-radius: 13px;
+    background: #fff;
+    padding: 20px;
+  }
+  .login-user .left {
+    background-color: #950101;
+    width: 50%;
+    min-height: 900px;
+    text-align: center;
+    float: left;
+  } 
+  
+  .login-user .right {
+    width: 50%;
+    float: left;
+    padding: 120px;
+  }
+  .login-user .right .btn-border {
+    border: 1px solid #E7E5F4;
+    border-radius: 50px;
+    padding: 12px 80px 12px 80px;
+  }
+  .header-wrap .story {
+    margin-top: 20px;
+  }
+  .story {
+    font-weight: 600;
+    font-size: 16px;
+    color: #00A19D;
+  }
+  .checkout {
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+  .checkout .item-bootcamp .package {
+    font-size: 22px;
+    color: #31B380;
+    font-weight: 600;
+  }
+  
+  .checkout .item-bootcamp .description {
+    font-size: 16px;
+    color: #211B3D;
+    font-weight: 400;
+    line-height: 30px;
+  }
+  .checkout .item-bootcamp .cover {
+    height: 255px;
+    margin-bottom: 30px;
+  }
+}
+ /* //END Large devices (desktops, less than 1200px) */
+
+.header-wrap .primary-header {
+  margin-top: 8px;
+}
+
 body {
   font-family: 'Poppins', sans-serif;
 }
@@ -28,12 +225,6 @@ body {
   color: #5B5575;
 }
 
-.login-user .right {
-  width: 50%;
-  float: left;
-  padding: 120px;
-}
-
 .login-user .right .people {
   margin-top: 100px;
   height: 170px;
@@ -44,11 +235,6 @@ body {
   margin-bottom: 100px;
 }
 
-.login-user .right .btn-border {
-  border: 1px solid #E7E5F4;
-  border-radius: 50px;
-  padding: 12px 80px 12px 80px;
-}
 
 .login-user .right .btn-google-login {
   margin-top: 40px;
@@ -58,28 +244,9 @@ body {
   margin-right: 8px;
 }
 
-.login-user .left {
-  background-color: #950101;
-  width: 50%;
-  min-height: 900px;
-  text-align: center;
-  float: left;
-}
-
 .login-user .left img {
   margin-top: 200px;
   height: 540px;
-}
-
-.testimonials {
-  background: #F7F7FB;
-  padding: 70px 0 70px 0;
-}
-
-.testimonials .item-review {
-  border-radius: 13px;
-  background: #fff;
-  padding: 20px;
 }
 
 .testimonials .item-review .message, .testimonials .item-review .user .info .role {
@@ -117,17 +284,6 @@ body {
   min-height: 0;
   margin-top: 0;
   margin-bottom: 0;
-}
-
-.pricing {
-  margin-top: 100px;
-  background: #950101;
-  padding-top: 70px;
-  max-height: 620px;
-}
-
-.pricing .copywriting {
-  margin-top: 80px;
 }
 
 .pricing .support {
@@ -170,13 +326,6 @@ body {
   background: #E7E5F4;
 }
 
-.pricing .paket-gila {
-  min-height: 697px;
-}
-
-.pricing .paket-biasa {
-  min-height: 453px;
-}
 
 .clear {
   clear: both;
@@ -221,12 +370,6 @@ body {
   background: #F8485E;
 }
 
-.story {
-  font-weight: 600;
-  font-size: 16px;
-  color: #00A19D;
-}
-
 .primary-header {
   font-weight: 600;
   font-size: 30px;
@@ -260,14 +403,6 @@ body {
   padding-bottom: 70px;
 }
 
-.header-wrap .primary-header {
-  margin-top: 8px;
-}
-
-.header-wrap .story {
-  margin-bottom: 0;
-}
-
 .text-purple {
   color: #7839F3;
 }
@@ -281,26 +416,22 @@ body {
   color: #c2003a;
 }
 
-.banner {
-  padding: 80px 0 80px 0;
-}
+
+
+
 
 .banner .copywriting {
-  padding-top: 80px;
+  padding-top: 0px;
 }
 
-.banner .header {
-  margin: 20px 0 20px 0;
-  font-size: 42px;
-  color: #211B3D;
-  font-weight: 600;
-}
+
 
 .banner .support {
   font-size: 16px;
   font-weight: 400;
   color: #5B5575;
   line-height: 30px;
+  
 }
 
 .banner .cta {
@@ -323,29 +454,6 @@ body {
   border: 1px solid #E7E5F4;
   border-radius: 50px;
   padding: 12px 20px 12px 20px;
-}
-
-.checkout {
-  padding-top: 80px;
-  padding-bottom: 80px;
-}
-
-.checkout .item-bootcamp .cover {
-  height: 255px;
-  margin-bottom: 30px;
-}
-
-.checkout .item-bootcamp .package {
-  font-size: 22px;
-  color: #31B380;
-  font-weight: 600;
-}
-
-.checkout .item-bootcamp .description {
-  font-size: 16px;
-  color: #211B3D;
-  font-weight: 400;
-  line-height: 30px;
 }
 
 .text-green {

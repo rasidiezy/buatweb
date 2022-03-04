@@ -19,7 +19,12 @@
                   <div class="row">
                       <div class="col-lg-5 col-12">
                           <div class="item-bootcamp">
+                              @if ($paket->slug == 'paket-maksimal')
                               <img src="{{ asset('/images/item_bootcamp.png') }}" alt="" class="cover">
+                              @else
+                              <img src="{{ asset('/images/item.png') }}" alt="" class="cover">
+                              @endif
+                             
                               <h1 class="package text-red text-uppercase">
                               {{ $paket->judul }}
                               </h1>
