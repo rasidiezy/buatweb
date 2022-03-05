@@ -6,7 +6,7 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">
-                        Paket Saya
+                        Paket Terdaftar
                     </div>
                     <div class="card-body">
                         @include('components.alert')
@@ -36,7 +36,9 @@
                                         </td>
                                     </tr>
                                 @empty
-                                    
+                                <tr class="text-center">
+                                    <td colspan="5">Tidak Ada Data Paket</td>
+                              </tr>
                                 @endforelse
                             </tbody>
                         </table>
