@@ -168,6 +168,23 @@ return [
             'numeric' => 'Kode CVC tidak boleh mengandung huruf',
             'digits' => 'Kode CVC harus 3 digit'
         ],
+        'nama' => [
+            'required' => 'Nama wajib diisi'
+        ],
+        'kode_voucher' => [
+            'required' => 'Kode voucher wajib diisi',
+            'max' => 'Kode voucher maksimal panjang 5 karakter',
+        ],
+        'deskripsi' => [
+            'string' => 'kode voucher harus berupa huruf',
+        ],
+        'persentasi' => [
+            'required' => 'Persentase diskon wajib diisi',
+            'max' => 'persentase diskon maksimal 100',
+        ],
+        'diskon' => [
+            'exists' => 'Kode diskon tidak ada',
+        ]
     ],
 
     /*

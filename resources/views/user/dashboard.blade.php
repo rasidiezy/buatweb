@@ -20,7 +20,11 @@
                     @forelse ($checkouts as $item)
                     <tr class="align-middle">
                         <td width="18%">
+                            @if ($item->paket_id == 1)
                             <img class="imgsm" src="{{ asset('/images/item_bootcamp.png') }}" height="120" alt="">
+                            @else
+                            <img class="imgsm" src="{{ asset('/images/item.png') }}" height="120" alt="">
+                            @endif
                         </td>
                         <td class="width-mobile">
                             <p class="mb-2">
@@ -31,7 +35,10 @@
                             </p>
                         </td>
                         <td>
-                            <strong>Rp. {{@currency($item->Paket->harga) }}</strong>
+                            <strong>Rp. {{@currency($item->total) }}</strong>
+                            @if ($item->discount_id)
+                                <span class="badge bg-danger">Diskon {{ $item->diskon_persentase }}%</span>
+                            @endif
                         </td>
                         <td>
                              @if ($item->payment_status == 'waiting')

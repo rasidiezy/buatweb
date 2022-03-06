@@ -7,6 +7,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\User\DashboardController as UserDashboard;
 use App\Http\Controllers\Admin\DashboardController as AdminDashboard;
 use App\Http\Controllers\Admin\PaidController as AdminPaid;
+use App\Http\Controllers\Admin\DiscountController as AdminDiscount;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -47,7 +48,7 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/',[UserDashboard::class, 'index'])->name('dashboard');   
     });
     //admin dashboard
-    Route::prefix('admin/dashboard')->namespace('Admin')->name('admin.')->middleware('UserRole:admin')->group(function(){
+    Route::prefix('admin/dashboard')->name('admin.')->middleware('UserRole:admin')->group(function(){
         Route::get('/',[AdminDashboard::class, 'index'])->name('dashboard');   
 
         //set to paid
@@ -55,6 +56,8 @@ Route::middleware(['auth'])->group(function () {
 
         //set to unpaid
         Route::post('checkout/{checkout}', [AdminPaid::class, 'unpaid'])->name('checkout.unpaid');
+
+        Route::resource('discount', AdminDiscount::class);
     });
 
 // Route::get('/dashboard', function () {
