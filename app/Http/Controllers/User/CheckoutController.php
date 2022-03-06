@@ -10,6 +10,7 @@ use App\Http\Requests\User\Checkout\Store;
 use App\Mail\Checkout\afterCheckout;
 use App\Models\Paket;
 use App\Models\User;
+use App\Models\Discount;
 use Auth;
 use Mail;
 use Midtrans;
@@ -82,6 +83,13 @@ public function __construct()
         $user->alamat= $data['alamat'];
         $user->save();
 
+        //checkout diskon
+        if ($request->diskon) {
+            $discount = Discount::where('kode_voucher', $request->diskon)->first();
+            $data['discount_id'] = $discount->id;
+            $data['diskon_persentase'] = $discount->persentasi;
+        }
+
         //insert checkout
         $checkouts = Checkouts::create($data);
         $this->getSnapRedirect($checkouts);
@@ -146,16 +154,28 @@ public function __construct()
         $orderId = $checkouts->id.'-'.Str::random(5);
         $price = $checkouts->Paket->harga;
 
-        $transactionDetails = [
-            'order_id' => $orderId,
-            'gross_amount' => $price
-        ];
-
         $item_details[] = [
             'id' => $orderId,
             'price' => $price,
             'quantity' => 1,
             'name' => "Pembayaran untuk {$checkouts->Paket->judul}"
+        ];
+
+        $discountPrice = 0;
+        if ($checkouts->Discount) {
+            $discountPrice = $price * $checkouts->diskon_persentase / 100;
+            $item_details[] = [
+                'id' => $checkouts->Discount->kode_voucher,
+                'price' => -$discountPrice,
+                'quantity' => 1,
+                'name' => "Diskon {$checkouts->Discount->nama} ({$checkouts->diskon_persentase}%)"
+            ];
+        }
+
+        $total = $price - $discountPrice;
+        $transactionDetails = [
+            'order_id' => $orderId,
+            'gross_amount' => $total
         ];
 
         $userData = [
@@ -188,6 +208,7 @@ public function __construct()
             $paymentUrl = \Midtrans\Snap::createTransaction($midtrans_params)->redirect_url;
             $checkouts->midtrans_url = $paymentUrl;
             $checkouts->midtrans_booking_code = $orderId;
+            $checkouts->total = $total;
             $checkouts->save();
 
             return $paymentUrl;

@@ -30,6 +30,7 @@ class Store extends FormRequest
             'pekerjaan' => 'required', 
             'no_telepon' => 'required|numeric', 
             'alamat' => 'required', 
+            'diskon' => 'nullable|exists:discounts,kode_voucher,deleted_at,NULL'
            
         ];
     }
