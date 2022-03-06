@@ -8,7 +8,7 @@
                     <div class="card-header">
                         Paket Terdaftar
                     </div>
-                    <div class="card-body">
+                    <div class="card-body table-responsive">
                         @include('components.alert')
                         <table class="table">
                             <thead>

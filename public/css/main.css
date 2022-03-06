@@ -96,7 +96,27 @@
   }
 
   .ca {
-    margin-left: 200px;
+    flex-direction: row-reverse;
+  }
+
+  .table .table tr {
+   box-shadow:  0 4px 15px -8px rgba(0, 0, 0, 0.5); 
+  }
+
+  table {
+    border-collapse: separate;
+    border-spacing: 0 1em;
+}
+
+  .table .table td {
+    display: block;
+    text-align: center;
+  }
+
+  .table .table td::before {
+    content: attr(data-heading);
+    display: block;
+    font-weight: bold;
   }
 }
 

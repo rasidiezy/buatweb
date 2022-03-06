@@ -13,20 +13,20 @@
                   </h2>
               </div>
           </div>
-          <div class="row my-5 table-responsive-sm">
+          <div class="my-5 table">
               @include('components.alert')
               <table class="table">
                   <tbody>
                     @forelse ($checkouts as $item)
-                    <tr class="align-middle">
-                        <td width="18%">
+                    <tr class="spacer align-middle">
+                        <td> 
                             @if ($item->paket_id == 1)
-                            <img class="imgsm" src="{{ asset('/images/item_bootcamp.png') }}" height="120" alt="">
+                            <img  src="{{ asset('/images/item_bootcamp.png') }}" height="120" alt="">
                             @else
-                            <img class="imgsm" src="{{ asset('/images/item.png') }}" height="120" alt="">
+                            <img src="{{ asset('/images/item.png') }}" height="120" alt="">
                             @endif
                         </td>
-                        <td class="width-mobile">
+                        <td >
                             <p class="mb-2">
                                 <strong>{{ $item->Paket->judul }}</strong>
                             </p>
@@ -34,26 +34,26 @@
                                 {{ $item->created_at->format('M d Y') }}
                             </p>
                         </td>
-                        <td>
+                        <td data-heading="Harga">
                             <strong>Rp. {{@currency($item->total) }}</strong>
-                            @if ($item->discount_id)
+                            @if ($item->discount_id) <br>
                                 <span class="badge bg-danger">Diskon {{ $item->diskon_persentase }}%</span>
                             @endif
                         </td>
-                        <td>
+                        <td data-heading="Status Pembayaran">
                              @if ($item->payment_status == 'waiting')
-                             <strong class="text-capitalize badge bg-warning"> {{ $item->payment_status }}</strong>
+                             <strong class="text-capitalize badge bg-warning">Menunggu Pembayaran</strong>
                              @else
                              <strong class="text-capitalize badge bg-success"> {{ $item->payment_status }}</strong>
                              @endif
                         </td>
                         <td class="text-center">
                             @if ($item->payment_status == 'waiting')
-                            <a href="{{ $item->midtrans_url }}" class="btn btn-primary "> Bayar Disini</a>
+                            <a href="{{ $item->midtrans_url }}" class="btn btn-primary btn-sm "> Bayar Disini</a>
                             @endif
                         </td>
                         <td>
-                            <a href="https://wa.me/085158580660?text=Hi, saya telah memesan kelas {{ $item->Paket->judul }}" class="btn btn-secondary">
+                            <a href="https://wa.me/085158580660?text=Hi, saya telah memesan kelas {{ $item->Paket->judul }}" class="btn btn-secondary btn-sm">
                                 Kontak Kami
                             </a>
                         </td>
