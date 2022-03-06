@@ -11,4 +11,6 @@ class Discount extends Model
     use HasFactory, SoftDeletes;
 
     protected $fillable = ['nama', 'kode_voucher', 'deskripsi', 'persentasi'];
+    
 }
+

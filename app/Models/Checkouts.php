@@ -16,7 +16,10 @@ class Checkouts extends Model
         'paket_id',
         'payment_status', 
         'midtrans_url', 
-        'midtrans_booking_code'
+        'midtrans_booking_code',
+        'discount_id', 
+        'diskon_persentase', 
+        'total'
     ];
     
     //memformat inputan kadaluwarsa di form checkout
@@ -47,5 +50,15 @@ class Checkouts extends Model
         return $this->hasOne(User::class, 'id','users_id');
         // return $this->belongsTo(User::class);
     }
-        #
+    
+
+    /**
+     * Get the Discount that owns the Checkouts
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function Discount(): BelongsTo
+    {
+        return $this->belongsTo(Discount::class);
+    }
 }

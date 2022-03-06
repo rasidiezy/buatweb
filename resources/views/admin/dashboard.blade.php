@@ -25,8 +25,14 @@
                                     <tr>
                                         <td>{{ $item->User->nama }}</td>
                                         <td>{{ $item->Paket->judul }}</td>
-                                        <td>{{ @currency($item->Paket->harga )}}</td>
-                                        <td>{{ $item->created_at->format('d M Y') }}</td>
+                                        <td>{{ @currency($item->total )}}
+                                            @if ($item->discount_id)
+                                            <span class="badge bg-danger">Diskon {{ $item->diskon_persentase }}%</span>
+                                            @endif
+                                        </td>
+                                        
+                                        <td>{{ $item->created_at->format('d M Y') }}
+                                        </td>
                                         <td>
                                             @if ($item->payment_status == 'waiting')
                                                  <span class="badge bg-warning text-capitalize">{{ $item->payment_status }}</span>

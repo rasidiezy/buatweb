@@ -181,6 +181,9 @@ return [
         'persentasi' => [
             'required' => 'Persentase diskon wajib diisi',
             'max' => 'persentase diskon maksimal 100',
+        ],
+        'diskon' => [
+            'exists' => 'Kode diskon tidak ada',
         ]
     ],
 

@@ -82,9 +82,15 @@
                             <p  class="text-danger">{{ $errors->first('alamat') }}</p>
                           </div>
                             @endif
-                              
-                                     
-                                     
+                            <div class="mb-4">
+                                <label class="form-label">Diskon</label>
+                                <input type="text" name="diskon" class="form-control  {{ $errors->has('diskon') ? 'is-invalid' : '' }}" value="{{old('diskon')}}">
+                            </div>
+                            @if ($errors->has('diskon'))
+                            <div class=" text-center" role="alert">
+                            <p  class="text-danger">{{ $errors->first('diskon') }}</p>
+                          </div>
+                            @endif
                                   </div>
                               </div>
                               <button type="submit" class="w-100 btn btn-primary">Bayar Sekarang</button>

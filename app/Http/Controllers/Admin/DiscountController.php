@@ -95,7 +95,7 @@ class DiscountController extends Controller
     public function destroy(Request $request, Discount $discount)
     {
         $discount->delete();
-        $request->session()->flash('success', 'Diskon berhasil dihapus');
+        $request->session()->flash('error', 'Diskon berhasil dihapus');
         return redirect (route('admin.discount.index'));
     }
 }
